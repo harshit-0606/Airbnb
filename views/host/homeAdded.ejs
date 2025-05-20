@@ -1,0 +1,28 @@
+<%- include('../partials/head') %>
+<link rel="stylesheet" href="/home.css">
+<link rel="stylesheet" href="/navbar.css">
+<link rel="stylesheet" href="/addHomeForm.css">
+</head>
+<body>
+    <%- include('../partials/nav') %>
+    
+    <main>
+        <div class="homes-container">
+            <% registeredHomes.forEach((home) => { %>
+                <div class="card">
+                    <h2><%= home.houseName.toUpperCase() %></h2>
+                    <p><strong>Price:</strong> <%= home.price %></p>
+                    <p><strong>Location:</strong> <%= home.location %></p>
+                    <p><strong>Rating:</strong> <%= home.rating %></p>
+                     <img src= "/<%=home.image %>" alt="">
+                     <a href="/host/add-home" class="add-home-btn">Add Home</a>
+                     <a href="/host/edit-home/<%=home._id%>?editing=true" class="add-home-btn">Edit Home</a>
+                     <form action="/host/delete-home/<%=home._id%>" method="post">
+                        <button type="submit" class="add-home-btn">Delete Home</button>
+                     </form>
+                </div>
+            <% }) %>
+        </div>
+    </main>
+</body>
+</html>

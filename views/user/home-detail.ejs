@@ -1,0 +1,23 @@
+<%- include('../partials/head') %>
+<link rel="stylesheet" href="/home.css">
+<link rel="stylesheet" href="/navbar.css">
+<link rel="stylesheet" href="/addHomeForm.css">
+</head>
+<body>
+    <%- include('../partials/nav') %>
+    
+    <main>
+        <div class="homes-container">
+                <div class="card">
+                    <h2><%= home.houseName.toUpperCase() %></h2>
+                    <p><strong>Price:</strong> <%= home.price %></p>
+                    <p><strong>Location:</strong> <%= home.location %></p>
+                    <p><strong>Rating:</strong> <%= home.rating %></p>
+                     <img src= <%=home.image %> alt="">
+                     <%- include('../partials/fav',{home:home}) %>
+                </div>
+        </div>
+      
+    </main>
+</body>
+</html>

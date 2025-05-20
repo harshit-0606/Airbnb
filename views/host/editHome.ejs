@@ -1,0 +1,42 @@
+<%- include('../partials/head') %>
+<link rel="stylesheet" href="/home.css">
+<link rel="stylesheet" href="/navbar.css">
+<link rel="stylesheet" href="/addHomeForm.css">
+</head>
+<body>
+    <%- include('../partials/nav') %>
+    <main>
+        <form action="/host/<%= editing ? 'edit-home': 'host-home' %>" method="POST" class="home-form">
+           
+      <input type="hidden", name="id" value=<%= editing ? home._id : ''  %> >
+
+            <input type="text" name="houseName" placeholder="House Name"
+            value="<%= editing ? home.houseName : '' %>" required>
+
+            <div class="input-group">
+                <label for="price">Price/Night (in Rs.)</label>
+                <input type="text" name="price" id="price" value="<%= editing ? home.price : '' %>" required>
+            </div>
+
+            <div class="input-group">
+                <label for="location">House Location</label>
+                <input type="text" name="location" id="location" value="<%= editing ? home.location : '' %>" required>
+            </div>
+
+            <div class="input-group">
+                <label for="rating">House Rating</label>
+                <input type="text" name="rating" id="rating" value="<%= editing ? home.rating : '' %>" required>
+            </div>
+
+            <div class="image-preview">
+                <input type="text" name="image" id="image" placeholder="Image URL" value="<%= editing ? home.image : '' %>" required>
+            </div>
+
+            <button type="submit" class="submit-btn"><%= !editing ? 'Submit' : 'Edit' %></button>
+        </form>
+    </main> 
+</body>
+</html>
+
+
+

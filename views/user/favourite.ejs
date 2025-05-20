@@ -1,0 +1,28 @@
+<%- include('../partials/head') %>
+<link rel="stylesheet" href="/home.css">
+<link rel="stylesheet" href="/navbar.css">
+<link rel="stylesheet" href="/addHomeForm.css">
+</head>
+<body>
+    <%- include('../partials/nav') %>
+    
+    <main>
+        <div class="homes-container">
+            <% favouriteHomeDetails.forEach((home) => { %>
+                <div class="card">
+                    <h2><%= home.houseName.toUpperCase() %></h2>
+                    <p><strong>Price:</strong> <%= home.price %></p>
+                    <p><strong>Location:</strong> <%= home.location %></p>
+                    <p><strong>Rating:</strong> <%= home.rating %></p>
+                      <img src= "/<%= home.image %>" alt="">
+                     <a href="/user/Booking" class="add-home-btn">Booking</a>
+                     <form action="/favourites/delete/<%=home._id%>" method="post">
+                        <button type="submit" class="add-home-btn" >Remove Favourite</button>
+                     </form>
+                </div>
+            <% }) %>
+        </div>
+      
+    </main>
+</body>
+</html>
